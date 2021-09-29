@@ -61,4 +61,15 @@ public class ArraysUtils {
 
         return finalArr;
     }
+
+    public static int[] randomNumbersOrdered(int startingNum, int maxNum, int numberOfNums){
+        int[] numbers = new int[numberOfNums];
+        int lastNum = startingNum;
+
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = MathUtils.randomNumBetween(lastNum, maxNum);
+            lastNum = numbers[i];
+        }
+        return numbers;
+    }
 }

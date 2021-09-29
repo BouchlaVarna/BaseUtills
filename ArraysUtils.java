@@ -1,5 +1,7 @@
 package cz.learning.second;
 
+import java.util.Arrays;
+
 public class ArraysUtils {
     public static int[] randomNum(int length, int min, int max) {
         int[] arr = new int[length];
@@ -34,7 +36,7 @@ public class ArraysUtils {
         return sumOfNumbers;
     }
 
-
+    //Caesar cipher
     public static char[] cypher(char[] arr, int key, boolean cypher) {
         int num = 97;
         if (!cypher) {
@@ -45,5 +47,18 @@ public class ArraysUtils {
             arr[i] = (char) ((arr[i] + key - num) % 26 + num);
         }
         return arr;
+    }
+
+    //Verner Cipher
+    public static String vernerCipher(String word, String key){
+        char[] wordArr = word.toCharArray();
+        char[] keyArr = key.toCharArray();
+        String finalArr = "";
+
+        for (int i = 0; i < wordArr.length; i++) {
+            finalArr += (char) (wordArr[i] ^ keyArr[i % keyArr.length]);
+        }
+
+        return finalArr;
     }
 }
